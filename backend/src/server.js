@@ -1,7 +1,6 @@
 import express from 'express';
 import path from 'path';
-import dotenv from 'dotenv';
-dotenv.config();
+import {ENV} from './config/env.js';
 
 import authRoutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.routes.js'
@@ -16,7 +15,7 @@ connectDB();
 const app = express();
 const __dirname = path.resolve();
 
-const PORT = process.env.PORT || 3000;
+const PORT = ENV.PORT || 3000;
 
 // middlewares
 app.use(express.json());
