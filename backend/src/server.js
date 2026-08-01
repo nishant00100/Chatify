@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import {ENV} from './config/env.js';
+import cookieParser from 'cookie-parser';
 
 import authRoutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.routes.js'
@@ -19,6 +20,7 @@ const PORT = ENV.PORT || 3000;
 
 // middlewares
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 
