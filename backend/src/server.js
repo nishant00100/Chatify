@@ -1,17 +1,24 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import path from 'path';
+import dotenv from 'dotenv';
+dotenv.config();
 
 import authRoutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.routes.js'
 
-dotenv.config();
+import { connectDB } from './config/db.js';
+
+connectDB();
+
+
+
 
 const app = express();
 const __dirname = path.resolve();
 
 const PORT = process.env.PORT || 3000;
 
+// middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
