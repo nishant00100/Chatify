@@ -1,10 +1,18 @@
 import express from 'express';
-import { register, login, logout } from '../controllers/auth.controllers.js';
+import { register, login, logout, updateProfile } from '../controllers/auth.controllers.js';
+import { protectRoute } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
 router.post('/register', register);
 router.post('/login', login);
-router.post('/logout', logout);    
+router.post('/logout', logout);  
+
+
+router.post('/update-profile', protectRoute, updateProfile);    
+
+router.get('/check', protectRoute, (req, res) => {
+    res.status(200).json({ message: "User is authenticated", user: req.user });
+});
 
 export default router;
