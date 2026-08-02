@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import {ENV} from './config/env.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import authRoutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.routes.js'
@@ -10,15 +11,13 @@ import { connectDB } from './config/db.js';
 
 connectDB();
 
-
-
-
 const app = express();
 const __dirname = path.resolve();
 
 const PORT = ENV.PORT || 3000;
 
 // middlewares
+app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));

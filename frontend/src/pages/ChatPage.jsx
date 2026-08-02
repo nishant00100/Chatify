@@ -1,10 +1,10 @@
 import React from 'react'
 
 const ChatPage = () => {
-    const {authUser, isLoggedIn, login} = useAuthStore();
+    
   return (
     <div>
-      
+      <h1>ChatPage</h1>
     </div>
   )
 }

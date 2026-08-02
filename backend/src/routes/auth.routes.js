@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.use(arcjetProtection); // Apply Arcjet protection middleware to all routes in this router
 
-router.post('/register', register);
+router.post('/signup', register);
 router.post('/login', login);
 router.post('/logout', logout);  
 
