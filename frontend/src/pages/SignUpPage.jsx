@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useAuthStore } from '../store/useAuthStore.js'
 import BorderAnimatedContainer from '../components/BorderAnimatedContainer.jsx'
-import { EyeClosedIcon, LoaderIcon, MailIcon, MessageCircleIcon, UserIcon } from 'lucide-react'
+import { EyeClosedIcon, LoaderIcon, LockIcon,  MailIcon, MessageCircleIcon, UserIcon } from 'lucide-react'
 import { Link } from "react-router"
 
 const SignUpPage = () => {
@@ -60,7 +60,7 @@ const SignUpPage = () => {
                   <div>
                     <label className="auth-input-label">Password</label>
                     <div className='relative'>
-                      < EyeClosedIcon className='auth-input-icon' />
+                      < LockIcon className='auth-input-icon' />
 
                       <input type='text' value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} className='input' placeholder='Enter your pasword' />
                     </div>
